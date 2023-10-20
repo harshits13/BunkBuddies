@@ -1,0 +1,100 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- goodbye
+- greet
+- hostel_inquiry
+- stop
+- start
+- thanks
+responses:
+  utter_greet:
+  - text: Hello and welcome to BunkBuddies hostelbot.
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  - text: Thank you for using our services.
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa which was built by Harshit Saini and Milind Khanduri as a Hostel Recommendation System.
+  utter_ask_conitnue:
+  - text: Are you sure?
+  utter_ask_whats_next:
+  - text: What can I do for you?
+  utter_hostel_inquiry:
+  - text: Hello and welcome to BunkBuddies chatbot! I can recommend to you some of the top hostels near UPES.
+  utter_ask_gender:
+  - text: Are you looking for a boys hostel or a girls hostel?
+  utter_ask_location:
+  - text: Which campus are you studying in?
+  - text: In which location do you want your hostel to be in?
+  - text: Where do you want your hostel to be located?
+  utter_ask_budget:
+  - text: What is your budget for the hostel?
+  - text: How much are you looking to spend?
+  - text: What price range should I look for the hostel to be in?
+  - text: Within what price range should the hostel you're looking for be in?
+  utter_ask_food_type:
+  - text: Do you like Vegetarian or Non-Vegetarian food?
+  utter_ask_amenities:
+  - text: What kind of amenities are you looking for, such as gym, transport and library?
+  - text: What kind of facilities are you looking for, such as gym, transport and library?
+  utter_hostel_slots:
+  - text: I am looking for a hostel that fits your requirements. I will look for a {gender} hostel in {location}.
+  utter_start_over:
+  - text: I hope you are statisfied with using the BunkBuddies chatbot, if you would like to start over and start looking for new hostels you can ask me for hostels again!
+entities:
+- budget
+- food_type
+- location
+- gender
+slots:
+  gender:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: gender
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: location
+  budget:
+    type: float
+    influence_conversation: true
+    min_value: 0
+    max_value: 2
+    mappings:
+    - type: from_entity
+      entity: budget
+  food_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: food_type
+
+forms:
+  hostel_form:
+    required_slots:
+    - gender
+    - location
+    - budget
+    - food_type
+actions:
+- utter_greet
+- utter_hostel_slots
+- utter_hostel_inquiry
+- utter_goodbye
+- validate_hostel_form
+- action_ask_gender
+- action_ask_budget
+- action_ask_location
+- action_ask_food_type
+- action_recommend_hostel
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

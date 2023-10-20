@@ -1,0 +1,111 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hi
+- intent: start
+  examples: |
+    - start
+    - /start
+- intent: stop
+  examples: |
+    - Stop
+    - I'm not looking for a hostel
+    - I want to ask you something else
+    - end this
+    - tell me something else
+    - I want to ask something else
+- intent: hostel_inquiry
+  examples: |
+    - I am looking for a hostel
+    - hostels near me
+    - Student hostel
+    - Student PG
+    - what are the best hostels near [bidholi](location)
+    - what are the best hostels near [kandoli](location)
+    - I want a [boys](gender) hostel
+    - I'm looking for a [boys](gender) hostel
+    - I want a [girls](gender) hostel
+    - I'm looking for a [girls](gender) hostel
+    - [girls](gender) hostel
+    - [boys](gender) hostel
+    - My location is [Bidholi](location)
+    - My location is [Kandholi](location)
+    - My location is [Pondha](location)
+    - I'm looking for a hostel in [Bidholi](location)
+    - I'm looking for a hostel in [Kandholi](location)
+    - I'm looking for a hostel in [Pondha](location)
+    - I'm looking for a hostel in [Doonga](location)
+    - hi, im looking for a [boys](gender) hostel in [bidholi](location)
+    - im looking for [transport](amenities) and a [gym](amenities)
+    - im looking for a [girls](gender) hostel
+    - the hostel should be located in [kandoli](location)
+    - i want a [gym](amenities) and [transport](amenities) services
+    - im looking for a hostel in [bidholi](location)
+    - im looking for a [boys](gender) hostel
+    - [gym](amenities)
+    - im looking for a hostel
+    - [Boys](gender)
+    - [Bidholi](location)
+    - My budget is [0](budget)
+    - I have a budget of [1](budget)
+    - I can spent up to [2](budget)
+    - I like [Veg](food_type) food
+    - I like [Non-Veg](food_type) food
+    - [2](budget)
+    - [Veg](food_type)
+    - [Non-Veg](food_type)
+    - [Boys](gender)
+    - [Bidholi](location)
+    - [1](budget)
+    - [Veg](food_type)
+- intent: thanks
+  examples: |
+    - thank you
+    - thanks a lot
+    - thanks so much
+    - thank you very much
+    - thanks
+- intent: goodbye
+  examples: |
+    - cu
+    - good bye
+    - see you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who has developed you?
+- lookup: food_type
+  examples: |
+    - Veg
+    - Non-Veg

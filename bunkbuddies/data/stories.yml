@@ -1,0 +1,90 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: start
+  - action: utter_greet
+  - intent: hostel_inquiry
+  - action: hostel_form
+  - active_loop: hostel_form
+  - slot_was_set:
+    - requested_slot: gender
+  - slot_was_set:
+    - gender: Boys
+  - slot_was_set:
+    - gender: Boys
+  - slot_was_set:
+    - requested_slot: location
+  - slot_was_set:
+    - location: Bidholi
+  - slot_was_set:
+    - location: Bidholi
+  - slot_was_set:
+    - requested_slot: budget
+  - slot_was_set:
+    - budget: '2'
+  - slot_was_set:
+    - budget: '2'
+  - slot_was_set:
+    - requested_slot: food_type
+  - slot_was_set:
+    - food_type: Non-Veg
+  - slot_was_set:
+    - food_type: Non-Veg
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_hostel_slots
+  - action: action_recommend_hostel
+  - action: utter_start_over
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - intent: start
+  - action: utter_greet
+  - intent: hostel_inquiry
+  - action: hostel_form
+  - active_loop: hostel_form
+  - slot_was_set:
+    - requested_slot: gender
+  - slot_was_set:
+    - gender: Boys
+  - slot_was_set:
+    - gender: Boys
+  - slot_was_set:
+    - requested_slot: location
+  - slot_was_set:
+    - location: Bidholi
+  - slot_was_set:
+    - location: Bidholi
+  - slot_was_set:
+    - requested_slot: budget
+  - slot_was_set:
+    - budget: '1'
+  - slot_was_set:
+    - budget: '1'
+  - slot_was_set:
+    - requested_slot: food_type
+  - slot_was_set:
+    - food_type: Veg
+  - slot_was_set:
+    - food_type: Veg
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_hostel_slots
+  - action: action_recommend_hostel
+  - action: utter_start_over
+  - action: action_restart
